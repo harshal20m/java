@@ -1,29 +1,23 @@
-public class preffix {
+public class Preffix {
+
     public static void maxSubarraySum(int numbers[]) {
-        int currSum = 0;
+        int currSum;
         int maxSum = Integer.MIN_VALUE;
 
         for (int i = 0; i < numbers.length; i++) {
-            int start = i;
-
             for (int j = i; j < numbers.length; j++) {
-                int end = j;
                 currSum = 0;
-
-                for (int k = start; k < end; k++) { // print
-                    // subarray sum
+                for (int k = i; k <= j; k++) { // Include end index
                     currSum += numbers[k];
-
                 }
-                System.out.println(currSum);
+                System.out.println("Subarray (" + i + " to " + j + "): " + currSum);
                 if (maxSum < currSum) {
                     maxSum = currSum;
                 }
             }
         }
 
-        System.out.println("max sum = " + maxSum);
-
+        System.out.println("Max sum = " + maxSum);
     }
 
     public static void main(String[] args) {
